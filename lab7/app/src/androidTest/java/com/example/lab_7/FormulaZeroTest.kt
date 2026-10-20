@@ -52,4 +52,52 @@ class FormulaZeroTest {
             .onNodeWithText("FormulaZero Home")
             .assertExists()
     }
+
+    @Test
+    fun navigate_to_drivers_add_driver_clear_and_return_home() {
+        // navigate to drivers screen
+        composeTestRule
+            .onNodeWithTag("driversButton")
+            .performClick()
+
+        // verify drivers screen
+        composeTestRule
+            .onNodeWithText("FormulaZero Drivers")
+            .assertExists()
+
+        // enter driver name
+        composeTestRule
+            .onNodeWithTag("driverInput")
+            .performTextInput("Hamilton")
+
+        // add driver
+        composeTestRule
+            .onNodeWithTag("addDriverButton")
+            .performClick()
+
+        // verify driver appears
+        composeTestRule
+            .onNodeWithText("Hamilton")
+            .assertExists()
+
+        // clear drivers
+        composeTestRule
+            .onNodeWithTag("clearDriversButton")
+            .performClick()
+
+        // verify driver is cleared
+        composeTestRule
+            .onNodeWithText("Hamilton")
+            .assertDoesNotExist()
+
+        // return to home screen
+        composeTestRule
+            .onNodeWithTag("backButton")
+            .performClick()
+
+        // verify return to home screen
+        composeTestRule
+            .onNodeWithText("FormulaZero Home")
+            .assertExists()
+    }
 }
