@@ -30,7 +30,7 @@ class FormulaZeroTest {
         // enter race location
         composeTestRule
             .onNodeWithTag("locationInput")
-            .performTextInput("Canada")
+            .performTextInput("Montreal")
 
         // add race location
         composeTestRule
@@ -39,7 +39,7 @@ class FormulaZeroTest {
 
         // verify race appears
         composeTestRule
-            .onNodeWithText("Canada")
+            .onNodeWithText("Montreal")
             .assertExists()
 
         // return to home screen
